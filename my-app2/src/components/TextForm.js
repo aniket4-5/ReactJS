@@ -19,6 +19,11 @@ export default function TextForm() {
     let arr = s.split(" ");
     setOutputText("No of Words : " + arr.filter((word) => word !== "").length);
   };
+
+  const countChar = () => {
+    let x = inputtext;
+    setOutputText("No of Character : " + x.length);
+  };
   const [inputtext, setInputText] = useState("Enter Your Text Here . . . ");
   const [outputtext, setOutputText] = useState("");
 
@@ -37,15 +42,26 @@ export default function TextForm() {
         rows="8"
         value={outputtext}
       />
+
+      <h5 className="my-5">Perform Operation : </h5>
       <div className="my-3 ">
-        <button className="m-1 btn btn-primary" onClick={changeToUpperCase}>
+        <button
+          className="m-1 btn btn-outline-primary"
+          onClick={changeToUpperCase}
+        >
           Convert to Uppercase
         </button>
-        <button className="m-1 btn btn-primary" onClick={changeToLowerCase}>
+        <button
+          className="m-1 btn btn-outline-primary"
+          onClick={changeToLowerCase}
+        >
           Convert to LowerCase
         </button>
-        <button className="m-1 btn btn-primary" onClick={countWords}>
+        <button className="m-1 btn btn-outline-primary" onClick={countWords}>
           Count Words
+        </button>
+        <button className="m-1 btn btn-outline-primary" onClick={countChar}>
+          Count Character
         </button>
       </div>
     </div>
