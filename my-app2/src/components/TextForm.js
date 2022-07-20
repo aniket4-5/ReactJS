@@ -14,7 +14,7 @@ export default function TextForm() {
     setOutputText(newText);
   };
 
-  const [inputtext, setInputText] = useState("Enter Your Text Here . . . ");
+  const [inputtext, setInputText] = useState("");
   const [outputtext, setOutputText] = useState("");
 
   return (
