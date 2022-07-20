@@ -14,6 +14,11 @@ export default function TextForm() {
     setOutputText(newText);
   };
 
+  const clearText = () => {
+    setInputText("");
+    setOutputText("");
+  };
+
   const [inputtext, setInputText] = useState("");
   const [outputtext, setOutputText] = useState("");
 
@@ -21,7 +26,7 @@ export default function TextForm() {
     <div className="container my-3">
       <h5>Enter Your Text Here :</h5>
       <textarea
-        className="mt-3 form-control bg-dark text-white"
+        className="mt-3 form-control bg-secondary text-white"
         rows="8"
         value={inputtext}
         onChange={handleOnChange}
@@ -34,25 +39,26 @@ export default function TextForm() {
         <p className="mx-1  bg-dark text-center text-white p-2">
           Characters = {inputtext.length}
         </p>
+        <p
+          className="mx-1  btn btn-danger  text-center text-white p-2"
+          onClick={clearText}
+        >
+          Clear
+        </p>
       </div>
+      <p>Result : </p>
       <textarea
-        className="mt-1 form-control bg-dark text-white"
+        className="mt-1 form-control bg-secondary text-white"
         rows="8"
         value={outputtext}
       />
 
       <h5 className="my-2">Convert to : </h5>
       <div className="my-3 ">
-        <button
-          className="m-1 btn btn-outline-primary"
-          onClick={changeToUpperCase}
-        >
+        <button className="m-1 btn btn-success" onClick={changeToUpperCase}>
           UPPERCASE
         </button>
-        <button
-          className="m-1 btn btn-outline-primary"
-          onClick={changeToLowerCase}
-        >
+        <button className="m-1 btn btn-success" onClick={changeToLowerCase}>
           lowerCase
         </button>
       </div>
