@@ -14,16 +14,6 @@ export default function TextForm() {
     setOutputText(newText);
   };
 
-  const countWords = () => {
-    let s = inputtext;
-    let arr = s.split(" ");
-    setOutputText("No of Words : " + arr.filter((word) => word !== "").length);
-  };
-
-  const countChar = () => {
-    let x = inputtext;
-    setOutputText("No of Character : " + x.length);
-  };
   const [inputtext, setInputText] = useState("Enter Your Text Here . . . ");
   const [outputtext, setOutputText] = useState("");
 
@@ -36,32 +26,34 @@ export default function TextForm() {
         value={inputtext}
         onChange={handleOnChange}
       />
-      <h5 className="my-4">Result Box : </h5>
+      <div className="d-flex mt-2">
+        {/* <h5>Summary : </h5> */}
+        <p className="mx-1 bg-dark text-center text-white p-2">
+          Words = {inputtext.length > 0 ? inputtext.split(" ").length : 0}
+        </p>
+        <p className="mx-1  bg-dark text-center text-white p-2">
+          Characters = {inputtext.length}
+        </p>
+      </div>
       <textarea
-        className="mt-3 form-control bg-dark text-white"
+        className="mt-1 form-control bg-dark text-white"
         rows="8"
         value={outputtext}
       />
 
-      <h5 className="my-5">Perform Operation : </h5>
+      <h5 className="my-2">Convert to : </h5>
       <div className="my-3 ">
         <button
           className="m-1 btn btn-outline-primary"
           onClick={changeToUpperCase}
         >
-          Convert to Uppercase
+          UPPERCASE
         </button>
         <button
           className="m-1 btn btn-outline-primary"
           onClick={changeToLowerCase}
         >
-          Convert to LowerCase
-        </button>
-        <button className="m-1 btn btn-outline-primary" onClick={countWords}>
-          Count Words
-        </button>
-        <button className="m-1 btn btn-outline-primary" onClick={countChar}>
-          Count Character
+          lowerCase
         </button>
       </div>
     </div>
